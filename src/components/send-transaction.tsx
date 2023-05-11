@@ -33,7 +33,7 @@ export function SendTransaction() {
   });
 
   const sendToken = async () => {
-    await send({ debouncedTo, value: debouncedAmount });
+    await send({ to: debouncedTo, value: debouncedAmount });
   };
 
   return (

@@ -25,23 +25,18 @@ export const sign = async () => {
 export const swap = async () => {
   try {
     const { account, web3 } = await getAccount();
+    // await web3.eth.
   } catch (err) {
     console.log(`Func: swap - PARAMS: err`, err);
   }
 };
 
-export const send = async ({
-  debouncedTo,
-  value,
-}: {
-  debouncedTo: string;
-  value: string;
-}) => {
+export const send = async ({ to, value }: { to: string; value: string }) => {
   try {
-    const { account, web3 } = await getAccount();
+    const { account: from, web3 } = await getAccount();
     const receipt = await web3.eth.sendTransaction({
-      from: account,
-      to: debouncedTo,
+      from,
+      to,
       value: utils.parseEther(value || "0").toString(),
     });
     console.log(`Func: send - PARAMS: receipt`, receipt);
