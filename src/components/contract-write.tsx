@@ -1,11 +1,11 @@
 import * as React from "react";
+import { useEffect } from "react";
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
 } from "wagmi";
 import Web3 from "web3";
-import { useEffect } from "react";
 
 interface IProps {
   address?: `0x${string}`;
@@ -33,11 +33,7 @@ export function MintNFT(props: IProps) {
 
   const getWeb3 = async () => {
     const web3 = new Web3(window.ethereum as any);
-    console.log(`Func: MintNFT - PARAMS: web3`, web3);
-
     const block = await web3.eth.getBlockNumber();
-
-    console.log(`Func: MintNFT - PARAMS: block`, block);
   };
 
   useEffect(() => {

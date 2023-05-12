@@ -1,9 +1,14 @@
 import { useAccount, useBalance } from "wagmi";
 
-import { Account, Connect, NetworkSwitcher } from "../components";
-import { SendTransaction } from "../components/send-transaction";
+import {
+  Account,
+  Connect,
+  NetworkSwitcher,
+  Swap,
+  MintNFT,
+  SendTransaction,
+} from "@/components";
 import React from "preact/compat";
-import { MintNFT } from "../components/contract-write";
 
 function Page() {
   const { isConnected, address } = useAccount();
@@ -23,6 +28,7 @@ function Page() {
           </div>
           <MintNFT address={address} />
           <SendTransaction />
+          <Swap />
         </>
       )}
     </>
